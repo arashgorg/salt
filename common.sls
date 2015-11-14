@@ -5,3 +5,4 @@ common-pkgs:
        - openssh-server
        - nginx
        - docker
+       - arash
