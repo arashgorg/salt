@@ -4,3 +4,4 @@ common-pkgs:
        - emacs
        - openssh-server
        - nginx
+       - docker
