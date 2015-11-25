@@ -1,11 +1,11 @@
 # Docker is installed
-docker-pkgs:
+docker:
   pkg:
     - installed
     - name: lxc-docker
     - require:
       - pkgrepo: docker-repo
 
-docker-pkgs:
+docker:
   service.running
 
