@@ -1,28 +1,10 @@
-docker-dependencies:
-   pkg.installed:
-    - pkgs:
-      - iptables
-      - ca-certificates
-      - lxc
-      - python-pip
-
-docker-py:
-  pip.installed:
+# Docker is installed
+docker:
+  pkg:
+    - installed
+    - name: lxc-docker
     - require:
-      - pkg: docker-dependencies
-
-docker_repo:
-    pkgrepo.managed:
-      - repo: 'deb http://get.docker.io/ubuntu docker main'
-      - file: '/etc/apt/sources.list.d/docker.list'
-      - key_url: salt://docker/docker.pgp
-      - require_in:
-          - pkg: lxc-docker
-
-lxc-docker:
-  pkg.latest:
-    - require:
-      - pkg: docker-dependencies
+      - pkgrepo: docker-repo
 
 docker:
   service.running
